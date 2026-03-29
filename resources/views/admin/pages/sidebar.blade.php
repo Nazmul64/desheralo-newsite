@@ -24,7 +24,7 @@
       <i class="fa fa-chevron-right nav-arrow"></i>
     </div>
     <div class="nav-dd">
-      <a href="#">News Category</a>
+      <a href="{{ route('newscategories.index') }}">News Category</a>
       <a href="#">News Sub-Category</a>
       <a href="#">News Speciality</a>
       <a href="#">All News</a>
