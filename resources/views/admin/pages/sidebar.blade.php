@@ -36,7 +36,7 @@
     </div>
     <div class="nav-dd">
       <a href="{{ route('newsgallery.index') }}">Photo Gallery</a>
-      <a href="#">Video Gallery</a>
+      <a href="{{ route('newsvideogallery.index') }}">Video Gallery</a>
     </div>
 
     <div class="nav-row" onclick="toggleDD(this)">

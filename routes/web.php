@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\NewsCategoryController;
 use App\Http\Controllers\Admin\newsGalleryController;
 use App\Http\Controllers\Admin\NewsspecialitycategoryController;
 use App\Http\Controllers\Admin\NewsSubcategoryController;
+use App\Http\Controllers\Admin\NewsvideogalleryController;
 use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,5 +38,15 @@ Route::post('newsgallery/{id}/toggle-status', [newsGalleryController::class, 'to
 Route::delete('newsgallery-bulk-destroy', [newsGalleryController::class, 'bulkDestroy'])->name('newsgallery.bulkDestroy');
 //  News Gallery List Routes End ──────────────────────────────────────────
 
+// ── News Video Gallery Routes ──────────────────────────────────────────────────
+// Toggle publish status (AJAX)
+Route::post('newsvideogallery/{id}/toggle-status', [NewsvideogalleryController::class, 'toggleStatus'])->name('newsvideogallery.toggleStatus');
 
+// Bulk delete (AJAX)
+Route::delete('newsvideogallery-bulk-destroy', [NewsvideogalleryController::class, 'bulkDestroy']) ->name('newsvideogallery.bulkDestroy');
+
+// Resource routes — সবার শেষে
+Route::resource('newsvideogallery', NewsvideogalleryController::class);
+
+// ── End News Video Gallery Routes ──────────────────────────────────────────────
 
