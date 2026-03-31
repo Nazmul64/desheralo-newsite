@@ -35,7 +35,7 @@
       <i class="fa fa-chevron-right nav-arrow"></i>
     </div>
     <div class="nav-dd">
-      <a href="#">Photo Gallery</a>
+      <a href="{{ route('newsgallery.index') }}">Photo Gallery</a>
       <a href="#">Video Gallery</a>
     </div>
 

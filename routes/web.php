@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\NewsCategoryController;
+use App\Http\Controllers\Admin\newsGalleryController;
 use App\Http\Controllers\Admin\NewsspecialitycategoryController;
 use App\Http\Controllers\Admin\NewsSubcategoryController;
 use App\Http\Controllers\Frontend\FrontendController;
@@ -28,7 +29,13 @@ Route::resource('speciality', NewsspecialitycategoryController::class)->only(['i
 Route::delete('speciality-bulk-destroy', [NewsspecialitycategoryController::class, 'bulkDestroy']) ->name('speciality.bulkDestroy');
 // End  News Speciality List Routes ──────────────────────────────────────────
 
-
+//  News Gallery List Routes ──────────────────────────────────────────
+Route::resource('newsgallery', newsGalleryController::class);
+// Toggle publish status (AJAX)
+Route::post('newsgallery/{id}/toggle-status', [newsGalleryController::class, 'toggleStatus']) ->name('newsgallery.toggleStatus');
+// Bulk delete
+Route::delete('newsgallery-bulk-destroy', [newsGalleryController::class, 'bulkDestroy'])->name('newsgallery.bulkDestroy');
+//  News Gallery List Routes End ──────────────────────────────────────────
 
 
 
