@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\NewsCategoryController;
+use App\Http\Controllers\Admin\NewsspecialitycategoryController;
 use App\Http\Controllers\Admin\NewsSubcategoryController;
 use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,14 @@ Route::delete('newssubcategories/bulk-destroy', [NewsSubcategoryController::clas
 Route::post('newssubcategories/{id}/toggle-publish', [NewsSubcategoryController::class, 'togglePublish'])->name('newssubcategories.togglePublish');
 Route::resource('newssubcategories', NewsSubcategoryController::class);
 // ──End News Subcategory Routes ──────────────────────────────────────────
+
+//  News Speciality List Routes ──────────────────────────────────────────
+Route::resource('speciality', NewsspecialitycategoryController::class)->only(['index', 'store', 'update', 'destroy']);
+// Bulk delete route
+Route::delete('speciality-bulk-destroy', [NewsspecialitycategoryController::class, 'bulkDestroy']) ->name('speciality.bulkDestroy');
+// End  News Speciality List Routes ──────────────────────────────────────────
+
+
 
 
 
