@@ -25,7 +25,7 @@
     </div>
     <div class="nav-dd">
       <a href="{{ route('newscategories.index') }}">News Category</a>
-      <a href="#">News Sub-Category</a>
+      <a href="{{ route('newssubcategories.index') }}">News Sub-Category</a>
       <a href="#">News Speciality</a>
       <a href="#">All News</a>
     </div>

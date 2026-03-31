@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Newscategory extends Model
+class NewsSubcategory extends Model
 {
+    protected $table = 'news_subcategories';
+
     protected $fillable = [
+        'newscategory_id',
         'name',
         'slug',
         'image',
@@ -17,8 +20,8 @@ class Newscategory extends Model
         'menu_publish' => 'boolean',
     ];
 
-    public function subcategories()
+    public function category()
     {
-        return $this->hasMany(NewsSubcategory::class, 'newscategory_id');
+        return $this->belongsTo(Newscategory::class, 'newscategory_id');
     }
 }
