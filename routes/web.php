@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\NewblogController;
+use App\Http\Controllers\Admin\NewsblogcategoryController;
 use App\Http\Controllers\Admin\NewsCategoryController;
 use App\Http\Controllers\Admin\newsGalleryController;
 use App\Http\Controllers\Admin\NewsspecialitycategoryController;
 use App\Http\Controllers\Admin\NewsSubcategoryController;
 use App\Http\Controllers\Admin\NewsvideogalleryController;
+use App\Http\Controllers\Admin\NewsblogsubcategoryController;
 use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,4 +52,29 @@ Route::delete('newsvideogallery-bulk-destroy', [NewsvideogalleryController::clas
 Route::resource('newsvideogallery', NewsvideogalleryController::class);
 
 // ── End News Video Gallery Routes ──────────────────────────────────────────────
+
+// ── News Blog Category Routes ──────────────────────────────────────────────────
+Route::post('newsblogcategory/{id}/toggle-status', [NewsblogcategoryController::class, 'toggleStatus'])->name('newsblogcategory.toggleStatus');
+// Bulk delete (AJAX)
+Route::delete('newsblogcategory-bulk-destroy', [NewsblogcategoryController::class, 'bulkDestroy']) ->name('newsblogcategory.bulkDestroy');
+
+// Resource routes — সবার শেষে
+Route::resource('newsblogcategory', NewsblogcategoryController::class);
+// ── News Blog Category Routes ──────────────────────────────────────────────────
+
+
+
+// ── News Blog SubCategory Routes ──────────────────────────────────────────────
+Route::post('newsblogsubcategory/{id}/toggle-status', [NewsblogsubcategoryController::class, 'toggleStatus'])->name('newsblogsubcategory.toggleStatus');
+Route::delete('newsblogsubcategory-bulk-destroy',[NewsblogsubcategoryController::class, 'bulkDestroy'])->name('newsblogsubcategory.bulkDestroy');
+Route::resource('newsblogsubcategory', NewsblogsubcategoryController::class);
+// ── End News Blog SubCategory Routes ──────────────────────────────────────────
+
+
+// ── News Blog  Routes ──────────────────────────────────────────────
+Route::post('newblog/{id}/toggle-status', [NewblogController::class, 'toggleStatus'])->name('newblog.toggleStatus');
+Route::delete('newblog-bulk-destroy', [NewblogController::class, 'bulkDestroy'])->name('newblog.bulkDestroy');
+Route::get('newblog/subcategories', [NewblogController::class, 'getSubcategories'])->name('newblog.subcategories');
+Route::resource('newblog', NewblogController::class);
+// ── End News Blog  Routes ──────────────────────────────────────────
 

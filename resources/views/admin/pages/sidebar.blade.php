@@ -44,9 +44,9 @@
       <i class="fa fa-chevron-right nav-arrow"></i>
     </div>
     <div class="nav-dd">
-      <a href="#">Blog Category</a>
-      <a href="#">Blog Sub-Category</a>
-      <a href="#">Blog List</a>
+      <a href="{{ route('newsblogcategory.index') }}">Blog Category</a>
+      <a href="{{ route('newsblogsubcategory.index') }}">Blog Sub-Category</a>
+      <a href="{{ route('newblog.index') }}">Blog List</a>
     </div>
 
     <div class="nav-row" onclick="toggleDD(this)">
