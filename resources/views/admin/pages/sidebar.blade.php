@@ -103,7 +103,7 @@
     </div>
     <div class="nav-dd">
       <a href="{{ route('sitesetting.index') }}">Site Settings</a>
-      <a href="#">Company Info</a>
+      <a href="{{ route('companyinfo.index') }}">Company Info</a>
       <a href="#">Theme Settings</a>
       <a href="#">Theme Color</a>
       <a href="#" style="justify-content:space-between;padding-right:16px;">

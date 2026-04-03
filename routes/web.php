@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BlognewsaddController;
+use App\Http\Controllers\Admin\CompanyinfoController;
 use App\Http\Controllers\Admin\NewblogController;
 use App\Http\Controllers\Admin\NewsblogcategoryController;
 use App\Http\Controllers\Admin\NewsCategoryController;
@@ -106,3 +107,10 @@ Route::resource('newblog', NewblogController::class);
     // Standard resource (index, create, store, show, edit, update, destroy)
     Route::resource('sitesetting', SitesettingController::class);
 // ── End Site setting Routes ──────────────────────────────────────────────
+
+// ── Company Info Routes ──────────────────────────────────────────────────────
+Route::post('companyinfo/{id}/toggle-status', [CompanyinfoController::class, 'toggleStatus'])->name('companyinfo.toggleStatus');
+Route::delete('companyinfo-bulk-destroy', [CompanyinfoController::class, 'bulkDestroy'])->name('companyinfo.bulkDestroy');
+Route::resource('companyinfo', CompanyinfoController::class);
+// ── End Company Info Routes ──────────────────────────────────────────────────
+
