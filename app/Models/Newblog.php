@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Newblog extends Model
 {
+    protected $table = 'newblogs'; // explicitly set
+
     protected $fillable = [
         'newsblogcategory_id',
         'newssubblogcategory_id',
+        'speciality_id',
         'title',
         'summary',
         'description',
@@ -16,14 +19,18 @@ class Newblog extends Model
         'date',
         'image',
         'status',
+        'breaking_news',
+        'news_reporter',
+        'meta_keyword',
+        'meta_description',
     ];
 
     protected $casts = [
-        'date'   => 'date',
-        'status' => 'boolean',
+        'date'          => 'date',
+        'status'        => 'boolean',
+        'breaking_news' => 'boolean',
     ];
 
-    // ─── Relations ────────────────────────────────────────────────────────────
     public function category()
     {
         return $this->belongsTo(Newsblogcategory::class, 'newsblogcategory_id');
@@ -34,7 +41,11 @@ class Newblog extends Model
         return $this->belongsTo(Newssubblogcategory::class, 'newssubblogcategory_id');
     }
 
-    // ─── Scopes ───────────────────────────────────────────────────────────────
+    public function speciality()
+    {
+        return $this->belongsTo(Speciality::class, 'speciality_id');
+    }
+
     public function scopePublished($query)
     {
         return $query->where('status', 1);

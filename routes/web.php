@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\BlognewsaddController;
 use App\Http\Controllers\Admin\NewblogController;
 use App\Http\Controllers\Admin\NewsblogcategoryController;
 use App\Http\Controllers\Admin\NewsCategoryController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\Admin\NewsspecialitycategoryController;
 use App\Http\Controllers\Admin\NewsSubcategoryController;
 use App\Http\Controllers\Admin\NewsvideogalleryController;
 use App\Http\Controllers\Admin\NewsblogsubcategoryController;
+use App\Http\Controllers\Admin\SitesettingController;
 use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Route;
 
@@ -78,3 +80,29 @@ Route::get('newblog/subcategories', [NewblogController::class, 'getSubcategories
 Route::resource('newblog', NewblogController::class);
 // ── End News Blog  Routes ──────────────────────────────────────────
 
+
+// ── News Routes ──────────────────────────────────────────────────
+// AJAX helpers
+    Route::get('blognewsadd/subcategories', [BlognewsaddController::class, 'getSubcategories'])->name('blognewsadd.subcategories');
+    // Toggle endpoints
+    Route::post('blognewsadd/{id}/toggle-status', [BlognewsaddController::class, 'toggleStatus']) ->name('blognewsadd.toggleStatus');
+    Route::post('blognewsadd/{id}/toggle-breaking',[BlognewsaddController::class, 'toggleBreaking']) ->name('blognewsadd.toggleBreaking');
+    // Bulk delete
+    Route::delete('blognewsadd-bulk-destroy', [BlognewsaddController::class, 'bulkDestroy']) ->name('blognewsadd.bulkDestroy');
+    // Standard resource (index, create, store, show, edit, update, destroy)
+    Route::resource('blognewsadd', BlognewsaddController::class);
+// ── End News Routes ──────────────────────────────────────────────]
+
+
+
+// ── Site setting Routes ──────────────────────────────────────────────────
+// AJAX helpers
+    Route::get('sitesetting/subcategories', [SitesettingController::class, 'getSubcategories'])->name('sitesetting.subcategories');
+    // Toggle endpoints
+    Route::post('sitesetting/{id}/toggle-status', [SitesettingController::class, 'toggleStatus']) ->name('sitesetting.toggleStatus');
+    Route::post('sitesetting/{id}/toggle-breaking',[SitesettingController::class, 'toggleBreaking']) ->name('sitesetting.toggleBreaking');
+    // Bulk delete
+    Route::delete('sitesetting-bulk-destroy', [SitesettingController::class, 'bulkDestroy']) ->name('sitesetting.bulkDestroy');
+    // Standard resource (index, create, store, show, edit, update, destroy)
+    Route::resource('sitesetting', SitesettingController::class);
+// ── End Site setting Routes ──────────────────────────────────────────────

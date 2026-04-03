@@ -27,7 +27,7 @@
       <a href="{{ route('newscategories.index') }}">News Category</a>
       <a href="{{ route('newssubcategories.index') }}">News Sub-Category</a>
       <a href="{{ route('speciality.index') }}">News Speciality</a>
-      <a href="#">All News</a>
+      <a href="{{ route('blognewsadd.index') }}">All News</a>
     </div>
 
     <div class="nav-row" onclick="toggleDD(this)">
@@ -102,7 +102,7 @@
       <i class="fa fa-chevron-right nav-arrow"></i>
     </div>
     <div class="nav-dd">
-      <a href="#">Site Settings</a>
+      <a href="{{ route('sitesetting.index') }}">Site Settings</a>
       <a href="#">Company Info</a>
       <a href="#">Theme Settings</a>
       <a href="#">Theme Color</a>
