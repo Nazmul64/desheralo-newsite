@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\AdmanagerController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BlognewsaddController;
+use App\Http\Controllers\Admin\CmsfooterController;
+use App\Http\Controllers\Admin\CmsheaderController;
 use App\Http\Controllers\Admin\CompanyinfoController;
 use App\Http\Controllers\Admin\HeaderCodeController;
 use App\Http\Controllers\Admin\NewblogController;
@@ -145,3 +147,16 @@ Route::post('headercode',                    [HeaderCodeController::class, 'stor
 Route::put('headercode/{id}',               [HeaderCodeController::class, 'update'])->name('headercode.update');
 Route::delete('headercode/{id}',            [HeaderCodeController::class, 'destroy'])->name('headercode.destroy');
 
+
+
+// ── Cmsheader Routes ────────────────────────────────────────────────────────
+Route::post('cmsheader/{id}/toggle-status', [CmsheaderController::class, 'toggleStatus'])->name('cmsheader.toggleStatus');
+Route::delete('cmsheader-bulk-destroy',     [CmsheaderController::class, 'bulkDestroy'])->name('cmsheader.bulkDestroy');
+Route::resource('cmsheader', CmsheaderController::class);
+// ── End Cmsheader Routes ────────────────────────────────────────────────────
+
+// ── Cmsfooter Routes ────────────────────────────────────────────────────────
+Route::post('cmsfooter/{id}/toggle-status', [CmsfooterController::class, 'toggleStatus'])->name('cmsfooter.toggleStatus');
+Route::delete('cmsfooter-bulk-destroy',     [CmsfooterController::class, 'bulkDestroy'])->name('cmsfooter.bulkDestroy');
+Route::resource('cmsfooter', CmsfooterController::class);
+// ── End Cmsfooter Routes ────────────────────────────────────────────────────

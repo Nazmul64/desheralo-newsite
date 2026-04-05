@@ -72,8 +72,8 @@
       <i class="fa fa-chevron-right nav-arrow"></i>
     </div>
     <div class="nav-dd">
-      <a href="#">Header</a>
-      <a href="#">Footer</a>
+      <a href="{{ route('cmsheader.index') }}">Header</a>
+      <a href="{{ route('cmsfooter.index') }}">Footer</a>
       <a href="#">Manage Page</a>
       <a href="#">SEO Report</a>
       <a href="#">Social Share</a>
