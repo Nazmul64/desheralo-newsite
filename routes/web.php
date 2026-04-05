@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\AdmanagerController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BlognewsaddController;
 use App\Http\Controllers\Admin\CompanyinfoController;
+use App\Http\Controllers\Admin\HeaderCodeController;
 use App\Http\Controllers\Admin\NewblogController;
 use App\Http\Controllers\Admin\NewsblogcategoryController;
 use App\Http\Controllers\Admin\NewsCategoryController;
@@ -127,4 +129,19 @@ Route::post('themecolor/{id}/toggle-status', [ThemecolorController::class, 'togg
 Route::delete('themecolor-bulk-destroy',     [ThemecolorController::class, 'bulkDestroy'])->name('Themecolor.bulkDestroy');
 Route::resource('themecolor', ThemecolorController::class);
 // ── End themecolor Routes ───────────────────────────────────────────────────
+
+
+// ── Ad Manager Routes ────────────────────────────────────────────────────────
+Route::post('admanager/{id}/toggle-status', [AdmanagerController::class, 'toggleStatus'])->name('admanager.toggleStatus');
+Route::delete('admanager-bulk-destroy',     [AdmanagerController::class, 'bulkDestroy'])->name('admanager.bulkDestroy');
+Route::resource('admanager', AdmanagerController::class);
+// ── End Ad Manager Routes ────────────────────────────────────────────────────
+
+// ── Header Code Routes ───────────────────────────────────────────────────────
+Route::post('headercode/{id}/toggle-status', [HeaderCodeController::class, 'toggleStatus'])->name('headercode.toggleStatus');
+Route::delete('headercode-bulk-destroy',     [HeaderCodeController::class, 'bulkDestroy'])->name('headercode.bulkDestroy');
+Route::get('headercode',                     [HeaderCodeController::class, 'index'])->name('headercode.index');
+Route::post('headercode',                    [HeaderCodeController::class, 'store'])->name('headercode.store');
+Route::put('headercode/{id}',               [HeaderCodeController::class, 'update'])->name('headercode.update');
+Route::delete('headercode/{id}',            [HeaderCodeController::class, 'destroy'])->name('headercode.destroy');
 

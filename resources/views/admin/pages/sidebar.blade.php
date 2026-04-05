@@ -84,8 +84,8 @@
       <i class="fa fa-chevron-right nav-arrow"></i>
     </div>
     <div class="nav-dd">
-      <a href="#">All Ads</a>
-      <a href="#">Add New Ad</a>
+      <a href="{{ route('admanager.index') }}">All Ads</a>
+      <a href="{{ route('headercode.index') }}">Add New Header Code</a>
     </div>
 
     <div class="nav-row" onclick="toggleDD(this)">
