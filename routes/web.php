@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\NewsSubcategoryController;
 use App\Http\Controllers\Admin\NewsvideogalleryController;
 use App\Http\Controllers\Admin\NewsblogsubcategoryController;
 use App\Http\Controllers\Admin\SitesettingController;
+use App\Http\Controllers\Admin\ThemecolorController;
+use App\Http\Controllers\Admin\ThemesettingController;
 use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Route;
 
@@ -113,4 +115,16 @@ Route::post('companyinfo/{id}/toggle-status', [CompanyinfoController::class, 'to
 Route::delete('companyinfo-bulk-destroy', [CompanyinfoController::class, 'bulkDestroy'])->name('companyinfo.bulkDestroy');
 Route::resource('companyinfo', CompanyinfoController::class);
 // ── End Company Info Routes ──────────────────────────────────────────────────
+
+// ── Themesetting Routes ───────────────────────────────────────────────────────
+Route::post('themesettings/{id}/toggle-status', [ThemesettingController::class, 'toggleStatus'])->name('Themesetting.toggleStatus');
+Route::delete('themesettings-bulk-destroy',     [ThemesettingController::class, 'bulkDestroy'])->name('Themesetting.bulkDestroy');
+Route::resource('themesettings',                ThemesettingController::class);
+// ── End Themesetting Routes ───────────────────────────────────────────────────
+
+// ── themecolor Routes ───────────────────────────────────────────────────────
+Route::post('themecolor/{id}/toggle-status', [ThemecolorController::class, 'toggleStatus'])->name('Themecolor.toggleStatus');
+Route::delete('themecolor-bulk-destroy',     [ThemecolorController::class, 'bulkDestroy'])->name('Themecolor.bulkDestroy');
+Route::resource('themecolor', ThemecolorController::class);
+// ── End themecolor Routes ───────────────────────────────────────────────────
 

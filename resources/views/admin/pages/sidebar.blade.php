@@ -104,8 +104,8 @@
     <div class="nav-dd">
       <a href="{{ route('sitesetting.index') }}">Site Settings</a>
       <a href="{{ route('companyinfo.index') }}">Company Info</a>
-      <a href="#">Theme Settings</a>
-      <a href="#">Theme Color</a>
+      <a href="{{ route('themesettings.index') }}">Theme Settings</a>
+      <a href="{{ route('themecolor.index') }}">Theme Color</a>
       <a href="#" style="justify-content:space-between;padding-right:16px;">
         Notifications <span class="new-badge">New</span>
       </a>
