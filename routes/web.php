@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CmsfooterController;
 use App\Http\Controllers\Admin\CmsheaderController;
 use App\Http\Controllers\Admin\CompanyinfoController;
 use App\Http\Controllers\Admin\HeaderCodeController;
+use App\Http\Controllers\Admin\ManagepageController;
 use App\Http\Controllers\Admin\NewblogController;
 use App\Http\Controllers\Admin\NewsblogcategoryController;
 use App\Http\Controllers\Admin\NewsCategoryController;
@@ -160,3 +161,9 @@ Route::post('cmsfooter/{id}/toggle-status', [CmsfooterController::class, 'toggle
 Route::delete('cmsfooter-bulk-destroy',     [CmsfooterController::class, 'bulkDestroy'])->name('cmsfooter.bulkDestroy');
 Route::resource('cmsfooter', CmsfooterController::class);
 // ── End Cmsfooter Routes ────────────────────────────────────────────────────
+
+// ── Managepage Routes ────────────────────────────────────────────────────────
+Route::post('managepage/{id}/toggle-status', [ManagepageController::class, 'toggleStatus'])->name('managepage.toggleStatus');
+Route::delete('managepage-bulk-destroy', [ManagepageController::class, 'bulkDestroy'])->name('managepage.bulkDestroy');
+Route::resource('managepage', ManagepageController::class);
+// ── End Managepage Routes ────────────────────────────────────────────────────

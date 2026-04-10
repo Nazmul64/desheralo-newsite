@@ -74,7 +74,7 @@
     <div class="nav-dd">
       <a href="{{ route('cmsheader.index') }}">Header</a>
       <a href="{{ route('cmsfooter.index') }}">Footer</a>
-      <a href="#">Manage Page</a>
+      <a href="{{ route('managepage.index') }}">Manage Page</a>
       <a href="#">SEO Report</a>
       <a href="#">Social Share</a>
     </div>
