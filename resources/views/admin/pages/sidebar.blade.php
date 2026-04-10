@@ -75,7 +75,7 @@
       <a href="{{ route('cmsheader.index') }}">Header</a>
       <a href="{{ route('cmsfooter.index') }}">Footer</a>
       <a href="{{ route('managepage.index') }}">Manage Page</a>
-      <a href="#">SEO Report</a>
+      <a href="{{ route('seooptimization.index') }}">SEO Report</a>
       <a href="#">Social Share</a>
     </div>
 

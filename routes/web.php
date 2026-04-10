@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\NewsspecialitycategoryController;
 use App\Http\Controllers\Admin\NewsSubcategoryController;
 use App\Http\Controllers\Admin\NewsvideogalleryController;
 use App\Http\Controllers\Admin\NewsblogsubcategoryController;
+use App\Http\Controllers\Admin\SeooptimizationController;
 use App\Http\Controllers\Admin\SitesettingController;
 use App\Http\Controllers\Admin\ThemecolorController;
 use App\Http\Controllers\Admin\ThemesettingController;
@@ -167,3 +168,12 @@ Route::post('managepage/{id}/toggle-status', [ManagepageController::class, 'togg
 Route::delete('managepage-bulk-destroy', [ManagepageController::class, 'bulkDestroy'])->name('managepage.bulkDestroy');
 Route::resource('managepage', ManagepageController::class);
 // ── End Managepage Routes ────────────────────────────────────────────────────
+
+Route::post('seooptimization/generate-sitemap',[SeooptimizationController::class, 'generateSitemap'])->name('seooptimization.generate-sitemap');
+Route::get('seooptimization/download-sitemap',[SeooptimizationController::class, 'downloadSitemap'])->name('seooptimization.download-sitemap');
+Route::post('seooptimization/{id}/toggle-status',[SeooptimizationController::class, 'toggleStatus'])->name('seooptimization.toggleStatus');
+Route::delete('seooptimization-bulk-destroy',[SeooptimizationController::class, 'bulkDestroy']) ->name('seooptimization.bulkDestroy');
+// 'show' except করা হয়েছে কারণ এটা GET /{id} কে intercept করে PUT কে block করে
+Route::resource('seooptimization', SeooptimizationController::class) ->except(['show']);
+
+// ── End Seooptimization Routes ────────────────────────────────────────────────────
